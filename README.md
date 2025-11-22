@@ -18,7 +18,7 @@ ssh root@<server-ip>
 2. Clona el repositorio:
 
 ```sh
-git clone https://codeberg.org/ichigar/vps_ubuntu_web_apps.git
+git clone git@github.com:ichigar/imw-vps-webapps.git
 ```
 
 3. Asigna permisos de ejecución y ejecuta el script:
