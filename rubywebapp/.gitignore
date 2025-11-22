@@ -1,0 +1,6 @@
+/.bundle
+/log/
+/tmp/
+/vendor/bundle/
+/.env*
+/.byebug_history
