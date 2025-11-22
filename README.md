@@ -62,36 +62,11 @@ ssh user@<server-ip>
    Solo podrás iniciar sesión mediante llaves SSH.
 
 
-## Go Web App
+### Pasos para desplegar aplicaciones
 
-### Pasos para desplegar la aplicación
-
-1. Inicia sesión como el usuario `user`:
-
-```sh
-ssh user@<server-ip>
-```
-
-2. Clona el repositorio:
-
-```sh
-git clone https://codeberg.org/ichigar/vps_ubuntu_web_apps.git
-```
-
-3. Accede al directorio de la aplicación escrita en Go:
-
-```sh
-cd vps_ubuntu_web_apps/gowebapp
-```
-
-4. Ejecuta el script de configuración:
-
-```sh
-sudo bash production_setup.sh
-```
-
-5. Accede a la aplicación desde tu navegador en:
-   `http://<server-ip>:8080`
+1. [gowebapp](gowebapp/README.md)
+2. [elixir_webapp](elixir_webapp/README.md)
+3. [python_webapp](python_webapp/README.md)
 
 ## Proxy inverso con caddy
 
