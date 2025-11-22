@@ -1,0 +1,11 @@
+Eres un desarrollador web que quiere crear, a partir de tutorial que se adjunta (tutorial_go_webapp.md), todos los archivos y carpetas necesarios para crear una aplicación básica en go que se va a ejecutar en un servidor Ubuntu 24.04. 
+
+Elabora un script que:
+- Defina al principio del script una variable con el puerto que se va a usar cuando se ejecute la aplicación
+- Cree en la carpeta actual todos los archivos y carpetas necesarios para el proyecto.
+
+El script no ejecutará ni configurar la aplicación  como servicio. 
+
+En caso de que ya existan algunos de los archivos y carpetas, el script debe sobreescribirlos.
+
+ Además el script mostrará por pantalla información de los pasos que va ejecutando

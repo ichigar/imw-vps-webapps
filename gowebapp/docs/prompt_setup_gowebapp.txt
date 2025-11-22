@@ -1,0 +1,5 @@
+crea ahora un script que suponiendo que el script anterior ya se ha ejecutado:
+- compruebe si go no está instalado en el sistema y lo instale
+- configure dependencias de la aplicación
+- compile la aplicación
+ Al terminar mostrará el nombre del ejecutable y cómo ejecutarlo

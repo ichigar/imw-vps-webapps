@@ -1,0 +1,27 @@
+# Dependencias descargadas por Mix
+/deps/
+
+# Artefactos compilados (directorio generado por Mix al compilar)
+# Aquí va el código ya traducido por el compilador.
+/_build/
+
+# Archivos temporales
+/tmp/
+
+# Archivos de herramientas de documentación o análisis
+/doc/
+.plt
+.plt.hash
+
+# Archivos de configuración privados o secretos
+/config/*.secret.exs
+
+# Cobertura de tests
+cover/
+.excoveralls.json
+
+# Cookie de Erlang (autenticación interna entre nodos)
+.erlang.cookie
+
+# Lock file (comenta esta línea si prefieres conservarlo en el repositorio)
+mix.lock

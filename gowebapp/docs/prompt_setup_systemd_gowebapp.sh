@@ -1,0 +1,1 @@
+Crea un script que ejecute como servicio la aplicación ya compilada que se obtiene al ejecutar el script `setup_go_webapp.sh` 

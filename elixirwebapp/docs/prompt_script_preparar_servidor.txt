@@ -1,0 +1,5 @@
+Si en un servidor ubuntu24.04 recién instalado en la carpeta actual dentro de la carpeta de un usuario con permisos de sudo tengo una aplicación en elixir clonada de un repositorio plug y cowboy para desplegarse y quiero preparar el servidor para poder ejecutar dicha aplicación
+
+crea en la subcarpeta scripts un script de nombre 01_preparar_servidor.sh que al ejecutarse instale todo el software necesario.
+
+El script no preparar el entorno de Elixir de la aplicación

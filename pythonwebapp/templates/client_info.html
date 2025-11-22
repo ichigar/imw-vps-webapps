@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Información del cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: sans-serif; margin: 2rem; background: #f5f5f5; }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        h1 { margin-top: 0; }
+        dt { font-weight: bold; margin-top: 1rem; }
+        dd { margin: 0 0 0.5rem 0; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Información del cliente</h1>
+
+    <p>Los datos de IP y navegador vienen del servidor. El resto los detecta tu navegador con JavaScript.</p>
+
+    <dl>
+        <dt>IP del cliente (vista por el servidor):</dt>
+        <dd>{{ client_ip }}</dd>
+
+        <dt>Navegador (User-Agent):</dt>
+        <dd>{{ user_agent }}</dd>
+
+        <dt>Resolución de pantalla:</dt>
+        <dd id="screen-resolution">Detectando...</dd>
+
+        <dt>Fecha y hora (según tu dispositivo):</dt>
+        <dd id="client-datetime">Detectando...</dd>
+
+        <dt>Zona horaria (según tu dispositivo):</dt>
+        <dd id="client-timezone">Detectando...</dd>
+    </dl>
+
+    <p>
+        <a href="{{ url_for('contact') }}">Volver al formulario de contacto</a>
+    </p>
+</div>
+
+<script>
+    // Resolución de pantalla: ancho x alto en píxeles
+    const width = window.screen.width;
+    const height = window.screen.height;
+    document.getElementById("screen-resolution").textContent = width + " x " + height + " píxeles";
+
+    // Fecha y hora local del cliente
+    const now = new Date();
+    document.getElementById("client-datetime").textContent = now.toLocaleString();
+
+    // Zona horaria del cliente (por ejemplo: Europe/Madrid)
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.getElementById("client-timezone").textContent = timezone;
+</script>
+</body>
+</html>

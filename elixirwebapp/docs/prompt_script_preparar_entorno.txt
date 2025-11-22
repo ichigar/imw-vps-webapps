@@ -1,0 +1,3 @@
+genera dentro de la subcarpeta scripts un script que prepare el entorno para ejecutar el código de la aplicación en Elixir. 
+El script tendrá en cuenta que el código de la aplicación está en la carpeta padre del mismo
+El script debe mostrar al final cómo ejecutar manualmente la aplicación desde la carpeta del proyecto y de cómo cambiar el puerto de la misma
