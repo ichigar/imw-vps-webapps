@@ -65,8 +65,8 @@ ssh user@<server-ip>
 ### Pasos para desplegar aplicaciones
 
 1. [gowebapp](gowebapp/README.md)
-2. [elixir_webapp](elixir_webapp/README.md)
-3. [python_webapp](python_webapp/README.md)
+2. [elixirwebapp](elixirwebapp/README.md)
+3. [pythonwebapp](pythonwebapp/README.md)
 
 ## Proxy inverso con caddy
 
