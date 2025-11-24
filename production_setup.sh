@@ -65,7 +65,7 @@ AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes
 MaxAuthTries 6
-AllowUsers root user
+AllowUsers root aspnetuser clojureuser elixiruser gouser jsuser luauser nimuser phpuser pythonuser rubyuser rustuser springbootuser
 EOF
     sudo systemctl restart ssh.service
 }
