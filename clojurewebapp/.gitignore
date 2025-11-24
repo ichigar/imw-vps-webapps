@@ -1,0 +1,10 @@
+.cpcache/
+.lein-failures
+.lein-repl-history
+.lein-plugins/
+.nrepl-port
+target/
+*.class
+*.jar
+*.log
+

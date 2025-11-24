@@ -64,61 +64,22 @@ ssh user@<server-ip>
 
 ### Pasos para desplegar aplicaciones
 
-1. [gowebapp](gowebapp/README.md)
-2. [elixirwebapp](elixirwebapp/README.md)
-3. [pythonwebapp](pythonwebapp/README.md)
+1. [aspnetwebapp](aspnetwebapp/README.md)
+2. [clojurewebapp](clojurewebapp/README.md)
+3. [elixirwebapp](elixirwebapp/README.md)
+4. [gowebapp](gowebapp/README.md)
+5. [jswebapp](jswebapp/README.md)
+6. [luawebapp](luawebapp/README.md)
+7. [nimwebapp](nimwebapp/README.md)
+8. [phpwebapp](phpwebapp/README.md)
+9. [pythonwebapp](pythonwebapp/README.md)
+10. [rubywebapp](rubywebapp/README.md)
+11. [rustwebapp](rustwebapp/README.md)
+12. [springbootwebapp](springbootwebapp/README.md)
 
 ## Proxy inverso con caddy
 
-El repositorio incluye un script de configuración de proxy inverso que permite accediendo por https a un dominio con un registro A que apunta a la VPS redireccionar la petición a una app que esté a la escucha en `127.0.0.1` en el puerto especificado al ejecutar el script.
+Seguimos el tutorial [configuración de proxy inverso con caddy](docs/tutorial_caddy.md)
 
-### Pasos para configurar el proxy inverso
 
-Ejecutar el script de configuración de caddy pasando como parámetro el nombre del dominio, el puerto en el que la app está a la escucha y el email de contacto para el certificado:
 
-```sh
-sudo bash setup_caddy_reverse_proxy example.com 8080 admin@example.com
-```
-
-Al acceder desde el navegador a <https://example.com> se debería abrir la aplicación que está a la escucha en <http://127.0.0.1:8080> en el servidor
-
-Si queremos añadir otra aplicación local para ser accesible con el proxy inverso no tenemos más que crear un registro A en el servidor de DNS que apunte a la ip del servidor y editar el fichero `/etc/caddy/Caddyfile` para añadir los datos de acceso a la nueva app.
-
-```sh
-# Caddyfile generado automáticamente
-{
-        email admin@example.com
-        # logging global opcional:
-        # log {
-        #   output file /var/log/caddy/access.log
-        #   level INFO
-        # }
-}
-
-example.com {
-        encode zstd gzip
-        header {
-                # Seguridad básica
-                Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-                X-Content-Type-Options "nosniff"
-                X-Frame-Options "DENY"
-                Referrer-Policy "strict-origin-when-cross-origin"
-        }
-        reverse_proxy 127.0.0.1:8080
-        # Si usas websockets o SSE, Caddy lo maneja automáticamente en reverse_proxy.
-}
-
-# Añadido manualmente para acceder a la nueva app asociada al dominio de ejemplo newapp.com
-newapp.com {
-        encode zstd gzip
-        header {
-                # Seguridad básica
-                Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-                X-Content-Type-Options "nosniff"
-                X-Frame-Options "DENY"
-                Referrer-Policy "strict-origin-when-cross-origin"
-        }
-        reverse_proxy 127.0.0.1:8081
-        # Si usas websockets o SSE, Caddy lo maneja automáticamente en reverse_proxy.
-}
-```

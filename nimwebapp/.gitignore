@@ -1,0 +1,8 @@
+nimcache/
+nimwebapp
+*.log
+*.exe
+*.dll
+*.so
+*.dylib
+
