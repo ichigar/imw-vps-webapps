@@ -111,18 +111,6 @@ sudo apt-get upgrade -y
 log "Installing required packages for a user production environment..."
 sudo apt-get install -y git build-essential autoconf jq gnupg2 htop 
 
-# Create user user and add sudo privileges
-log "Creating user user..."
-sudo adduser --disabled-password --gecos "" user
-sudo chmod 755 /home/user
-echo 'user ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/user
-sudo chmod 0440 /etc/sudoers.d/user
-
-# Install Certbot
-log "Installing Certbot..."
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-
 # Install additional useful tools
 log "Installing additional tools..."
 sudo apt-get install -y bat btop lsd
@@ -142,10 +130,6 @@ log "Alias setup complete. Changes will take effect on next login or shell start
 configure_firewall
 harden_ssh
 setup_fail2ban
-setup_user_ssh
-
-# Set hostname
-sudo hostnamectl set-hostname ubuntu-user-production
 
 # --- CLEANUP AND FINALIZATION ---
 
@@ -167,25 +151,15 @@ cat << EOF
 
 POST-INSTALLATION INSTRUCTIONS:
 
-1. SSH keys have been set up for the user user using the root's authorized_keys.
-   Verify that you can SSH into the server as the user user:
-   - ssh user@<your-server-ip>
-
-2. Root login is still allowed with public key authentication for maintenance.
+1. Root login is still allowed with public key authentication for maintenance.
    However, it's recommended to use the user user for regular operations.
 
-3. For GitHub SSH key setup for the user user:
-   a. SSH into your server as the user user: ssh user@<your-server-ip>
-   b. Generate a new SSH key: ssh-keygen -t ed25519 -C "your_email@users.noreply.github.com"
-   c. Add the public key to your GitHub account: cat ~/.ssh/id_ed25519.pub
-   d. Test the connection: ssh -T git@github.com
-
-4. If you encounter any issues:
+2. If you encounter any issues:
    - Check the SSH configuration: cat /etc/ssh/sshd_config
    - Verify firewall settings: sudo ufw status
    - Check SSH service status: sudo systemctl status ssh
 
-5. Remember, password authentication has been disabled for security reasons. 
+3. Remember, password authentication has been disabled for security reasons. 
    Always use SSH keys to log into the server.
 
 EOF
